@@ -1,3 +1,6 @@
+
+//Задача 1
+
 function Animal(name) {
     this.foodAmount = 50;
 
@@ -49,3 +52,46 @@ Cat.prototype.feed = function() {
 var barsik = new Cat('Барсик');
 barsik.dailyNorm(250);
 barsik.feed().stroke().stroke();
+
+
+
+//задача 2
+
+function deepClone (obj) {
+    var newObj = Array.isArray(obj) ? [] : {};
+    for (var key in obj) {
+        if(typeof obj[key] === 'object') {
+            newObj[key] = deepClone(obj[key]);
+        } else {
+            newObj[key] = obj[key]
+        }                
+    }
+    return newObj;
+};
+
+var initialObj = {
+    string: 'Vasya',
+    number: 30,
+    boolean: true,
+    undefined: undefined,
+    null: null,
+    array: [1, 2, 3],
+    object: {
+        string2: 'Petrov',
+        object2: {
+            array2: [{}, {}]
+        },
+        object3: {}
+    },
+    method: function() {
+        alert('Hello');
+    }
+};
+
+var clonedObj = deepClone(initialObj);
+
+clonedObj.object.object2.array2[1].name = 'Vasya';
+clonedObj.array.push(2);
+
+console.log(initialObj);
+console.log(clonedObj);
