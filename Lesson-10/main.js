@@ -2,30 +2,27 @@
 //Задача 1
 
 function Animal(name) {
-    this.foodAmount = 50;
-
-    var self = this;
-
-    Animal.prototype.formatFoodAmount = function () {
-        return this.foodAmount + ' гр.';
+    this._foodAmount = 50;
+    this.name = name;
+}
+    Animal.prototype._formatFoodAmount = function () {
+        return this._foodAmount + ' гр.';
     }
 
     Animal.prototype.dailyNorm = function(amount) {
-        if (!arguments.length) return self.formatFoodAmount();
+        if (!arguments.length) return this._formatFoodAmount();
 
         if (amount < 50 || amount > 500) {
             return 'Недопустимое количество корма.';
         }
 
-        self.foodAmount = amount;
+        this._foodAmount = amount;
     };
-
-    this.name = name;
 
     Animal.prototype.feed = function() {
-        console.log('Насыпаем в миску ' + self.dailyNorm() + ' корма.');
+        console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
     };
-}
+
 
 
 function Cat(name) {
@@ -38,7 +35,7 @@ Cat.prototype.constructor = Cat;
 
 
 Cat.prototype.feed = function() {
-    Animal.prototype.feed.apply(this);
+    Animal.prototype.feed.apply(this, arguments);
     console.log('Кот доволен ^_^');
     return this;
   };
@@ -54,11 +51,10 @@ barsik.dailyNorm(250);
 barsik.feed().stroke().stroke();
 
 
-
 //задача 2
 
 function deepClone (obj) {
-    var newObj = Array.isArray(obj) ? [] : {};
+    var newObj = (obj === null) ? null : Array.isArray(obj) ? [] : {};
     for (var key in obj) {
         if(typeof obj[key] === 'object') {
             newObj[key] = deepClone(obj[key]);
@@ -66,6 +62,7 @@ function deepClone (obj) {
             newObj[key] = obj[key]
         }                
     }
+    
     return newObj;
 };
 

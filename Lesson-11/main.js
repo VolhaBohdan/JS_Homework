@@ -1,4 +1,4 @@
-//Задание 1:
+    //Задание 1:
 
       function filterNumbersArr(numbers) {
         return numbers.filter(function(el){
@@ -8,7 +8,7 @@
 
     filterNumbersArr([-1, 0, 2, 34, -2]);
 
-//Задание 2:
+    //Задание 2:
       
       function filterNumbersArr(numbers) {
         return numbers.find(function(el){
