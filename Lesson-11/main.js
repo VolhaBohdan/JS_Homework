@@ -1,31 +1,22 @@
 //Задание 1:
 
-
       function filterNumbersArr(numbers) {
-          var newArr = [];
-          numbers.forEach(function(el){
-            if (el > 0) {
-                newArr[newArr.length] = el;
-            }
-          })
-          return newArr;
+        return numbers.filter(function(el){
+              return el > 0;
+        })
       }
 
-      filterNumbersArr([-1, 0, 2, 34, -2]);
+    filterNumbersArr([-1, 0, 2, 34, -2]);
 
 //Задание 2:
       
       function filterNumbersArr(numbers) {
-        var positiveNumber;
-        numbers.forEach(function(el){
-          if (el > 0 && positiveNumber == null) {
-            positiveNumber = el;
-          }
+        return numbers.find(function(el){
+          return el > 0;
         })
-        return positiveNumber;
-    }
+      }
 
-    filterNumbersArr([-1, -78, -4567, 0, 2, 34, -2]);
+      filterNumbersArr([-1, -78, -4567, 0, 2, 34, -2]);
 
     //Задание 3: 
 
