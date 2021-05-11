@@ -1,0 +1,23 @@
+table{
+    border: 1px solid;
+    cursor: pointer;
+}
+
+tr{
+    min-height: 100px;
+}
+
+td{
+    border: 1px solid;
+    padding: 20px;
+    min-width: 200px;
+}
+
+button{
+    height: 50px;
+    width: 100%;
+}
+
+#addRow{
+    text-align: center;
+}
