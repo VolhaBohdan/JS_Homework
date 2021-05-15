@@ -30,6 +30,7 @@ function loseFocus(event) {
     if (target.tagName == 'INPUT') {
         var td = target.parentNode;
         td.childNodes = '';
+        td.innerHTML = target.innerHTML;
         td.innerHTML = target.value;
     }
 }
