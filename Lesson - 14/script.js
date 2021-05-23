@@ -1,15 +1,15 @@
 
 document.getElementById('x').onkeyup = function (event) {
-    checkDimensionValue(event.target.value);
+    checkDimensionValue(event.target.value, document.getElementById('y').value);
 }
 
 document.getElementById('y').onkeyup = function (event) {
-    checkDimensionValue(event.target.value);
+    checkDimensionValue(event.target.value, document.getElementById('x').value);
 }
 
-function checkDimensionValue(value) {
+function checkDimensionValue(value1, value2) {
     var button = document.getElementsByTagName('button')[0];
-    if (value == '') {
+    if (value1 == '' || value2 == '') {
         button.disabled = true;
     } else {
         button.disabled = false;
